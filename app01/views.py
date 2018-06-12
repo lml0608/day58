@@ -47,3 +47,8 @@ def index(request):
     # paginator.num_pages #总页数
     #
     return render(request,'index.html',{'user_list':USER_LIST})
+
+
+
+
+
