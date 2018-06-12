@@ -8,7 +8,7 @@
 <a href="/app02/add_user/">添加</a>
 <ul>
     {% for row in user_list %}
-        <li>{{ row.id }}—{{ row.username }}—{{ row.email }}</li>
+        <li>{{ row.id }}—{{ row.username }}—{{ row.email }} <a href="/app02/edit_user-{{ row.id }}/">编辑</a></li>
     {% endfor %}
 </ul>
 </body>

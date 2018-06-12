@@ -13,6 +13,10 @@ urlpatterns = [
 
     url(r'^users/$', views.user),
     url(r'^add_user/$', views.add_user),
+    url(r'^edit_user-(\d+)/$', views.edit_user),
+
+
+    url(r'^test/$', views.test),
 
 
 ]

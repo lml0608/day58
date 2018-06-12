@@ -5,11 +5,13 @@
     <title>Title</title>
 </head>
 <body>
+<p>{{ userinfo.id }}- {{ userinfo.username }}</p>
 
-<form action="/app02/add_user/" method="post" novalidate>
+<form action="/app02/edit_user-{{ nid }}/" method="POST" novalidate>
+
     <P>{{ obj.username }}{{ obj.errors.username.0}}</P>
     <p>{{ obj.email }}{{ obj.errors.email.0 }}</p>
-    <p><input type="submit" value="提交"></p>
+    <input type="submit" value="提交">
 </form>
 </body>
 </html>
