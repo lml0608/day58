@@ -8,7 +8,7 @@ from django.forms import fields
 
 class UserForm(forms.Form):
 
-    username = fields.CharField(max_length=15)
+    user = fields.CharField(max_length=15)
     email = fields.EmailField()
 
 

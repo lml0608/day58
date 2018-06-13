@@ -30,6 +30,7 @@ def add_user(request):
     else:
 
         obj = UserForm(request.POST)
+        print(type(obj))
 
         if obj.is_valid():
 
