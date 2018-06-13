@@ -49,6 +49,8 @@ def add_user(request):
 
 
 
+
+
 def edit_user(request,nid):
 
     if request.method == "GET":
@@ -105,5 +107,44 @@ def test(request):
 
     obj = TestForm()
     return render(request,'test.html',{'obj':obj})
+
+
+class AjaxForm(forms.Form):
+    price = fields.IntegerField(max_value=15)
+    user_id = fields.IntegerField(
+
+        widget=widgets.Select(choices=[(0,'alex'),(1,'liubin'),(2,'liuxin')])
+    )
+
+
+def ajax(request):
+
+    if request.method == "GET":
+
+        obj = AjaxForm()
+
+        return render(request,'ajax.html',{'obj':obj})
+
+    else:
+
+        ret = {'status':'true','messages':None}
+        import json
+        obj = AjaxForm(request.POST)
+
+        if obj.is_valid():
+
+            print(obj.cleaned_data)
+
+            return HttpResponse(json.dumps(ret))
+        else:
+
+            print(type(obj.errors)) #<class 'django.forms.utils.ErrorDict'>
+
+
+            ret['status'] = 'false'
+            ret['messages'] = obj.errors
+
+            return HttpResponse(json.dumps(ret))
+
 
 

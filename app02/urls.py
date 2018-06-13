@@ -17,6 +17,7 @@ urlpatterns = [
 
 
     url(r'^test/$', views.test),
+    url(r'^ajax/$', views.ajax),
 
 
 ]

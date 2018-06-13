@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="fm" action="/app02/ajax/" method="post" novalidate>
+
+    {{ obj.as_p  }}
+    <input type="submit" value="提交" id="btn"><span id="error_msg" style="display: none"></span>
+
+</form>
+
+<script src="/static/js/jquery-3.1.1.js"></script>
+<script>
+    $(function () {
+        $('#btn').click(function () {
+
+            $.ajax(
+                {
+                    url:'/app02/ajax/',
+                    type:'POST',
+                    data:$('#fm').serialize(),
+                    dataType:'JSON',
+                    success:function (arg) {
+                        //arg状态，错误信息
+                        console.log(arg);
+                        alert(arg.messages.price);
+
+                        if (arg.status=='true'){
+                            window.location.href = "http://www.baidu.com"
+                        }else {
+
+                        }
+                    }
+                }
+            )
+        });
+    })
+</script>
+</body>
+</html>
